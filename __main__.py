@@ -4,6 +4,8 @@ from discord import Intents
 import os
 from dotenv import load_dotenv
 
+from utils.autocogs import AutoCogs
+
 load_dotenv(verbose=True)
 TOKEN = os.getenv('TOKEN')
 
@@ -15,6 +17,7 @@ class YourBOT(commands.Bot):
             help_command=None,
             intents=Intents.all()
         )
+        AutoCogs(self)
 
     async def on_ready(self):
         print(f'{str(self.user)} on Ready.')
